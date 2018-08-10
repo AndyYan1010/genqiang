@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#1296DB</color>
+
+    <!--黑色-->
+    <color name="black">#000000</color>
+    <color name="vm_black_100">#ff212121</color>
+    <color name="vm_black_87">#dd212121</color>
+    <color name="vm_black_54">#89212121</color>
+    <color name="vm_black_38">#61212121</color>
+    <color name="vm_black_12">#1e212121</color>
+    <!--白色-->
+    <color name="white">#FFFFFF</color>
+    <color name="white_100">#EFEFEF</color>
+    <!-- 灰色 -->
+    <color name="bg_Gray">#CCCCCC</color>
+    <!--灰色-->
+    <color name="gray_ef">#EFEFEF</color>
+    <color name="gray_f4">#F4F4F4</color>
+    <color name="gray_5">#555555</color>
+    <color name="gray_6">#666666</color>
+    <color name="gray_8">#888888</color>
+    <color name="gray_65">#656565</color>
+    <color name="gray_9">#999999</color>
+    <color name="gray_10">#aaaaaa</color>
+    <color name="gray_11">#bbbbbb</color>
+    <color name="gray_12">#cccccc</color>
+    <color name="gray_ec">#ECECEC</color>
+    <color name="gray_e">#EEEEEE</color>
+    <color name="gray_f8">#F8F8F8</color>
+
+    <!--蓝色-->
+    <color name="blue_100">#ff2384fe</color>
+    <color name="blue_87">#dd2384fe</color>
+    <color name="blue_54">#892384fe</color>
+    <color name="blue_38">#612384fe</color>
+    <color name="blue_12">#1e2384fe</color>
+    <color name="deepskyblue">#00BFFF</color>
+
+    <!-- 橙色 -->
+    <color name="orange">#FFA500</color>
+    <color name="red">#FF0000</color>
+    <color name="green">#56B113</color>
+
+</resources>
