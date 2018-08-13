@@ -90,7 +90,7 @@ public class Stock_F extends Fragment implements View.OnClickListener {
     }
 
     private void initData() {
-        tv_title.setText("库存");
+        tv_title.setText(getResources().getString(R.string.stock));
         tv_surema.setOnClickListener(this);
         img_scan.setOnClickListener(this);
         //模糊查询结果
@@ -100,7 +100,7 @@ public class Stock_F extends Fragment implements View.OnClickListener {
             @Override
             public void onDropItemSelect(int Postion) {
                 if (Postion == 0) {
-                    ToastUtils.showToast(getContext(), "请选择商品");
+                    ToastUtils.showToast(getContext(), getResources().getString(R.string.choose_goods));
                     return;
                 }
                 HashMap<String, String> goodsMap = mHTot.get(Postion - 1);
@@ -126,10 +126,10 @@ public class Stock_F extends Fragment implements View.OnClickListener {
                 String goodsMid = String.valueOf(edit_goods_id.getText()).trim();
                 linear_drop.setVisibility(View.INVISIBLE);
                 tv_heji.setVisibility(View.GONE);
-                if (null == goodsMid || "".equals(goodsMid) || "商品编码".equals(goodsMid)) {
+                if (null == goodsMid || "".equals(goodsMid) || getResources().getString(R.string.commodity_coding).equals(goodsMid)) {
                     mStockInfos.clear();
                     stockAdapter.notifyDataSetChanged();
-                    ToastUtils.showToast(getContext(), "请输入商品编码");
+                    ToastUtils.showToast(getContext(), getResources().getString(R.string.input_commodity_coding));
                     return;
                 }
                 //查询之前关闭输入法，防止bug
@@ -174,7 +174,7 @@ public class Stock_F extends Fragment implements View.OnClickListener {
                     //获取商品信息
                     writeGoodsStock(result);
                 } else if (bundle.getInt(CodeUtils.RESULT_TYPE) == CodeUtils.RESULT_FAILED) {
-                    Toast.makeText(getContext(), "解析二维码失败", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getContext(), getResources().getString(R.string.analysis_error), Toast.LENGTH_LONG).show();
                 }
             }
         }
@@ -242,7 +242,7 @@ public class Stock_F extends Fragment implements View.OnClickListener {
                 } else {
                     mGoodsNameList.clear();
                 }
-                mGoodsNameList.add(new DropBean("请选择查询结果"));
+                mGoodsNameList.add(new DropBean(getResources().getString(R.string.select_result)));
                 for (HashMap<String, String> map : mHTot) {
                     String fname = map.get("fname");
                     mGoodsNameList.add(new DropBean(fname));
@@ -251,7 +251,7 @@ public class Stock_F extends Fragment implements View.OnClickListener {
                 downbt.setChecked(true);
             } catch (Exception e) {
                 e.printStackTrace();
-                ToastUtils.showToast(getContext(), "未查询到类似商品助记码");
+                ToastUtils.showToast(getContext(), getResources().getString(R.string.no_querying));
             }
         }
     }
@@ -266,7 +266,7 @@ public class Stock_F extends Fragment implements View.OnClickListener {
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
-            ProgressDialogUtil.startShow(getContext(), "正在查找,请稍等...");
+            ProgressDialogUtil.startShow(getContext(), getResources().getString(R.string.searching));
         }
 
         @Override
@@ -309,7 +309,7 @@ public class Stock_F extends Fragment implements View.OnClickListener {
                 if (mStockInfos.size() > 0) {
                     linear_drop.setVisibility(View.GONE);
                     tv_heji.setVisibility(View.VISIBLE);
-                    tv_heji.setText("库存合计：" + df.format(sum));
+                    tv_heji.setText(getResources().getString(R.string.stock)+getResources().getString(R.string.total) + df.format(sum));
                 } else {
                     linear_drop.setVisibility(View.INVISIBLE);
                     tv_heji.setVisibility(View.GONE);
@@ -318,7 +318,7 @@ public class Stock_F extends Fragment implements View.OnClickListener {
                 stockAdapter.notifyDataSetChanged();
             } catch (Exception e) {
                 e.printStackTrace();
-                ToastUtils.showToast(getContext(), "查询出错,未查到此商品");
+                ToastUtils.showToast(getContext(), getResources().getString(R.string.search_error));
             }
             ProgressDialogUtil.hideDialog();
         }

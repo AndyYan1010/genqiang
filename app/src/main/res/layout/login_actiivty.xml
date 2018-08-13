@@ -28,7 +28,7 @@
             android:layout_weight="2"
             android:gravity="center"
             android:singleLine="true"
-            android:text="用户名:"
+            android:text="@string/username"
             android:textColor="@color/colorAccent"
             android:textSize="18sp"/>
 
@@ -40,7 +40,7 @@
             android:layout_marginRight="20dp"
             android:layout_weight="5"
             android:background="@drawable/bg_round_frame"
-            android:hint="请输入用户名"
+            android:hint="@string/inputname"
             android:imeOptions="actionNext"
             android:minHeight="30dp"
             android:paddingBottom="5dp"
@@ -66,7 +66,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="2"
             android:gravity="center"
-            android:text="密码:"
+            android:text="@string/password"
             android:textColor="@color/colorAccent"
             android:textSize="18sp"/>
 
@@ -78,7 +78,7 @@
             android:layout_marginRight="20dp"
             android:layout_weight="5"
             android:background="@drawable/bg_round_frame"
-            android:hint="请输入密码"
+            android:hint="@string/inputpassword"
             android:imeOptions="actionDone"
             android:maxLength="20"
             android:minHeight="30dp"
@@ -103,7 +103,7 @@
         android:paddingLeft="100dp"
         android:paddingRight="100dp"
         android:paddingTop="10dp"
-        android:text="登  录"
+        android:text="@string/login"
         android:textColor="@color/white"
         android:textSize="20sp"/>
 </LinearLayout>

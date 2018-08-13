@@ -135,7 +135,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 
     public void exit() {
         if ((System.currentTimeMillis() - exitTime) > 2000) {
-            Toast.makeText(getApplicationContext(), "再按一次退出应用",
+            Toast.makeText(getApplicationContext(), getResources().getString(R.string.exit_warning),
                     Toast.LENGTH_SHORT).show();
             exitTime = System.currentTimeMillis();
         } else {
@@ -159,7 +159,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     public void showFragment(Fragment fragment) {
         FragmentTransaction ft = this.getSupportFragmentManager().beginTransaction();
         // 设置Fragment的切换动画
-        //        ft.setCustomAnimations(R.anim.cu_push_right_in, R.anim.cu_push_left_out);
+        // ft.setCustomAnimations(R.anim.cu_push_right_in, R.anim.cu_push_left_out);
 
         // 判断页面是否已经创建，如果已经创建，那么就隐藏掉
         if (home_F != null) {

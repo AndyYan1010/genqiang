@@ -17,6 +17,7 @@ import com.bt.andy.gainstrong.MyAppliaction;
 import com.bt.andy.gainstrong.R;
 import com.bt.andy.gainstrong.activity.LoginActivity;
 import com.bt.andy.gainstrong.activity.meActivity.SaleFormActivity;
+import com.bt.andy.gainstrong.activity.meActivity.SettingActivity;
 import com.bt.andy.gainstrong.utils.ToastUtils;
 
 /**
@@ -69,7 +70,9 @@ public class User_F extends Fragment implements View.OnClickListener {
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.relative_set:
-                ToastUtils.showToast(getContext(), "暂未开放");
+//                ToastUtils.showToast(getContext(), "暂未开放");
+                Intent setIntent = new Intent(getContext(), SettingActivity.class);
+                startActivity(setIntent);
                 break;
             case R.id.relative_msg:
                 ToastUtils.showToast(getContext(), "暂未开放");

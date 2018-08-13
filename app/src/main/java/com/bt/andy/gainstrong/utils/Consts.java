@@ -8,4 +8,10 @@ public class Consts {
     public static String JA_select = "JA_select";
     //下单接口
     public static String ORDER = "SEOrder";
+
+    //系统语言
+    public static String SYSTEMLAUGAGE = "SYSTEMLAUGAGE";
+    //设置的语言
+    public static String LAUGAGE = "LAUGAGE";
+
 }

@@ -43,7 +43,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="首页"
+                android:text="@string/home"
                 android:textColor="#1f1724"
                 android:textSize="12sp"/>
         </LinearLayout>
@@ -65,7 +65,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="库存"
+                android:text="@string/stock"
                 android:textColor="#1f1724"
                 android:textSize="12sp"/>
         </LinearLayout>
@@ -87,7 +87,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="我"
+                android:text="@string/mine"
                 android:textColor="#1f1724"
                 android:textSize="12sp"/>
         </LinearLayout>

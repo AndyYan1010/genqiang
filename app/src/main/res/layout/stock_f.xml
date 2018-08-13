@@ -27,7 +27,7 @@
                 android:background="@drawable/bg_round_frame"
                 android:drawableLeft="@drawable/bar_code"
                 android:drawablePadding="8dp"
-                android:hint="商品编码"
+                android:hint="@string/commodity_coding"
                 android:minHeight="40dp"
                 android:paddingLeft="10dp"
                 android:textColor="@color/vm_black_100"
@@ -53,12 +53,12 @@
             android:background="@drawable/bg_round_blue_50"
             android:gravity="right|center_vertical"
             android:paddingBottom="2dp"
-            android:paddingLeft="15dp"
-            android:paddingRight="15dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
             android:paddingTop="2dp"
-            android:text="查询"
+            android:text="@string/search"
             android:textColor="@color/white"
-            android:textSize="16sp"
+            android:textSize="14sp"
             android:visibility="visible"/>
     </RelativeLayout>
 
@@ -83,7 +83,7 @@
         android:layout_marginTop="10dp"
         android:gravity="right"
         android:paddingRight="10dp"
-        android:text="合计："
+        android:text="@string/total"
         android:textColor="@color/vm_black_87"
         android:textSize="18sp"/>
 
@@ -102,9 +102,9 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:minHeight="40dp"
-                android:text="未查询到商品库存信息"
+                android:text="@string/no_stock"
                 android:textColor="@color/blue_100"
-                android:textSize="18sp"/>
+                android:textSize="16sp"/>
 
             <com.bt.andy.gainstrong.viewmodle.MyListView
                 android:id="@+id/lv_stock"

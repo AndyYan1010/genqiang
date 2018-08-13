@@ -42,6 +42,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login_actiivty);
+
         getView();
         setData();
     }
@@ -82,17 +83,18 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
     private void funLogin() {
         String number = mEdit_num.getText().toString().trim();
         String pass = mEdit_psd.getText().toString().trim();
-        if ("".equals(number) || "请输入用户名".equals(number)) {
-            ToastUtils.showToast(LoginActivity.this, "请输入用户名");
+        if ("".equals(number) || getResources().getString(R.string.inputname).equals(number)) {
+            ToastUtils.showToast(LoginActivity.this, getResources().getString(R.string.inputname));
             return;
         }
-        if ("请输入密码".equals(pass)) {
+        if (getResources().getString(R.string.inputpassword).equals(pass)) {
             //ToastUtils.showToast(LoginActivity.this,"请输入密码");
             pass = "";
         }
-        new LoginTask(number, pass).execute();
-        //                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-        //                startActivity(intent);
+        //        new LoginTask(number, pass).execute();
+        Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+        startActivity(intent);
+        finish();
     }
 
     class LoginTask extends AsyncTask<Void, String, String> {
@@ -132,14 +134,14 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
                     MyAppliaction.userName = split[1];//用户姓名
                 } else {
                     MyAppliaction.userName = "";//用户姓名
-                    ToastUtils.showToast(LoginActivity.this, "系统中未填写姓名");
+                    ToastUtils.showToast(LoginActivity.this, getResources().getString(R.string.no_name));
                 }
                 Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                 startActivity(intent);
-                ToastUtils.showToast(LoginActivity.this, "登陆成功");
+                ToastUtils.showToast(LoginActivity.this, getResources().getString(R.string.login_success));
                 finish();
             } else {
-                ToastUtils.showToast(LoginActivity.this, "登陆失败");
+                ToastUtils.showToast(LoginActivity.this, getResources().getString(R.string.login_error));
             }
         }
     }

@@ -128,7 +128,7 @@ public class TotalGoodsFragment extends Fragment implements View.OnClickListener
     }
 
     private void initData() {
-        mTv_title.setText("销售下单");
+        mTv_title.setText(getResources().getString(R.string.sales_order));
         mImg_scan.setOnClickListener(this);
         mImg_delete.setOnClickListener(this);
         mImg_confirm.setOnClickListener(this);
@@ -157,7 +157,7 @@ public class TotalGoodsFragment extends Fragment implements View.OnClickListener
             @Override
             public void onDropItemSelect(int Postion) {
                 if (Postion == 0) {
-                    ToastUtils.showToast(getContext(), "请选择商品");
+                    ToastUtils.showToast(getContext(), getResources().getString(R.string.choose_goods));
                     return;
                 }
                 HashMap<String, String> goodsMap = mHTot.get(Postion - 1);
@@ -179,9 +179,9 @@ public class TotalGoodsFragment extends Fragment implements View.OnClickListener
 
     private void showDeleteDailog(final int position) {
         AlertDialog.Builder builder = new AlertDialog.Builder(getContext(), AlertDialog.THEME_HOLO_LIGHT);
-        builder.setTitle("温馨提示");
-        builder.setMessage("您确定要删除该笔子订单？");
-        builder.setPositiveButton("确定", new DialogInterface.OnClickListener() {
+        builder.setTitle(getResources().getString(R.string.reminder));
+        builder.setMessage(getResources().getString(R.string.to_del));
+        builder.setPositiveButton(getResources().getString(R.string.sure), new DialogInterface.OnClickListener() {
 
             @Override
             public void onClick(DialogInterface dialog, int which) {
@@ -204,7 +204,7 @@ public class TotalGoodsFragment extends Fragment implements View.OnClickListener
                 }
                 dialog.cancel();
             }
-        }).setNegativeButton("取消", new DialogInterface.OnClickListener() {
+        }).setNegativeButton(getResources().getString(R.string.cancel), new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 dialog.cancel();
@@ -232,47 +232,47 @@ public class TotalGoodsFragment extends Fragment implements View.OnClickListener
                 mEdit_phone.setText("");
                 break;
             case R.id.img_confirm:
-                ToastUtils.showToast(getContext(), "等待网络确认会员号");
+                ToastUtils.showToast(getContext(), getResources().getString(R.string.waite_for_member_id));
                 String fmobile = String.valueOf(mEdit_phone.getText()).trim();
-                ProgressDialogUtil.startShow(getContext(), "正在查询，请稍等。。。");
+                ProgressDialogUtil.startShow(getContext(), getResources().getString(R.string.searching));
                 defAddress = "";
                 MemberTask memberTask = new MemberTask(fmobile);
                 memberTask.execute();
                 break;
             case R.id.tv_surema:
                 String goodsMid = String.valueOf(mEdit_goods_id.getText()).trim();
-                if (null == goodsMid || "".equals(goodsMid) || "商品编码".equals(goodsMid)) {
-                    ToastUtils.showToast(getContext(), "请输入商品编码");
+                if (null == goodsMid || "".equals(goodsMid) || getResources().getString(R.string.commodity_coding).equals(goodsMid)) {
+                    ToastUtils.showToast(getContext(), getResources().getString(R.string.input_commodity_coding));
                     return;
                 }
                 Task task = new Task(goodsMid);
                 task.execute();
                 //跳转商品详情界面，携带商品id
-                //                sendGoodsInfo(goodsid);
+                //sendGoodsInfo(goodsid);
                 break;
             case R.id.bt_submit:
                 String phone = String.valueOf(mEdit_phone.getText()).trim();
                 String name = String.valueOf(mEdit_name.getText()).trim();
                 String remark = String.valueOf(edit_write.getText()).trim();
                 String address = String.valueOf(mEdit_address.getText()).trim();
-                if ("".equals(phone) || "手机号".equals(phone)) {
-                    ToastUtils.showToast(getContext(), "请填写会员手机号");
+                if ("".equals(phone) || getResources().getString(R.string.phone_number).equals(phone)) {
+                    ToastUtils.showToast(getContext(), getResources().getString(R.string.fill_phone));
                     return;
                 }
-                if ("".equals(name) || "会员名".equals(name)) {
-                    ToastUtils.showToast(getContext(), "请填写会员名");
+                if ("".equals(name) || getResources().getString(R.string.member_name).equals(name)) {
+                    ToastUtils.showToast(getContext(), getResources().getString(R.string.fill_member_name));
                     return;
                 }
                 if ("".equals(deliveryId)) {
-                    ToastUtils.showToast(getContext(), "请选择配送方式");
+                    ToastUtils.showToast(getContext(), getResources().getString(R.string.choose_distribution));
                     return;
                 }
                 if ("".equals(remark) || "...".equals(remark)) {
-                    ToastUtils.showToast(getContext(), "请填写摘要");
+                    ToastUtils.showToast(getContext(), getResources().getString(R.string.fill_remark));
                     return;
                 }
                 if ("".equals(address) || "...".equals(address)) {
-                    ToastUtils.showToast(getContext(), "请填写送货地址");
+                    ToastUtils.showToast(getContext(), getResources().getString(R.string.fill_address));
                     return;
                 }
                 //TODO:提交总表到服务器
@@ -311,7 +311,7 @@ public class TotalGoodsFragment extends Fragment implements View.OnClickListener
                     //获取商品id信息，跳转activity展示，在新的页面确定后添加到listview中
                     sendGoodsInfo(result);
                 } else if (bundle.getInt(CodeUtils.RESULT_TYPE) == CodeUtils.RESULT_FAILED) {
-                    Toast.makeText(getContext(), "解析二维码失败", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getContext(), getResources().getString(R.string.analysis_error), Toast.LENGTH_LONG).show();
                 }
             }
         }
@@ -360,8 +360,8 @@ public class TotalGoodsFragment extends Fragment implements View.OnClickListener
     }
 
     private void sendGoodsInfo(String goodsID) {
-        ToastUtils.showToast(getContext(), "商品编码：" + goodsID);
-        //        mEdit_goods_id.setText(goodsID);
+        ToastUtils.showToast(getContext(), getResources().getString(R.string.commodity_coding) + goodsID);
+        //mEdit_goods_id.setText(goodsID);
         //跳转activity，选择添加
         showGoodsDetail(goodsID);
     }
@@ -421,7 +421,7 @@ public class TotalGoodsFragment extends Fragment implements View.OnClickListener
                 } else {
                     mGoodsNameList.clear();
                 }
-                mGoodsNameList.add(new DropBean("请选择查询结果"));
+                mGoodsNameList.add(new DropBean(getResources().getString(R.string.select_result)));
                 for (HashMap<String, String> map : mHTot) {
                     String fname = map.get("fname");
                     mGoodsNameList.add(new DropBean(fname));
@@ -430,7 +430,7 @@ public class TotalGoodsFragment extends Fragment implements View.OnClickListener
                 mDownbt.setChecked(true);
             } catch (Exception e) {
                 e.printStackTrace();
-                ToastUtils.showToast(getContext(), "未查询到类似商品助记码");
+                ToastUtils.showToast(getContext(), getResources().getString(R.string.no_querying));
             }
         }
     }
@@ -520,7 +520,7 @@ public class TotalGoodsFragment extends Fragment implements View.OnClickListener
         protected void onPostExecute(String s) {
             super.onPostExecute(s);
             if ("成功".equals(s)) {
-                ToastUtils.showToast(getContext(), "提交成功");
+                ToastUtils.showToast(getContext(), getResources().getString(R.string.sub_success));
                 mData.clear();
                 mGoodsAdapter.notifyDataSetChanged();
                 mLinear_sum.setVisibility(View.GONE);
@@ -529,7 +529,7 @@ public class TotalGoodsFragment extends Fragment implements View.OnClickListener
                 mLinear_address.setVisibility(View.GONE);
                 mBt_submit.setVisibility(View.GONE);
             } else {
-                ToastUtils.showToast(getContext(), "提交失败");
+                ToastUtils.showToast(getContext(), getResources().getString(R.string.sub_error));
             }
         }
     }
@@ -628,7 +628,7 @@ public class TotalGoodsFragment extends Fragment implements View.OnClickListener
                         memberName = rec.elementTextTrim("fname");//名
                         //默认地址
                         defAddress = rec.elementTextTrim("FAddr");
-                        mEdit_name.setText(memberName + "/默认地址：" + defAddress);
+                        mEdit_name.setText(memberName);
                         //积分
                         mFpoints = rec.elementTextTrim("favailablepoints");
                     }

@@ -14,7 +14,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
-            android:text="单据编号："
+            android:text="@string/document_number"
             android:textColor="@color/vm_black_54"
             android:textSize="16sp"/>
 
@@ -50,7 +50,7 @@
             android:layout_height="wrap_content"
             android:gravity="right"
             android:paddingRight="10dp"
-            android:text="冰箱"
+            android:text=""
             android:textColor="@color/vm_black_54"
             android:textSize="16sp"/>
     </LinearLayout>
